@@ -28,5 +28,9 @@
     "knex": "^0.21.6",
     "nodemon": "^2.0.5",
     "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0"
   }
 }
