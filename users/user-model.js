@@ -8,7 +8,7 @@ module.exports = {
 }
 
 function find(){
-    return db('users').select('id', 'username', 'password');
+    return db('users').select('id', 'username', 'password', 'email', '21_or_over', 'reason_for_use', "medical_condition", 'desired_effect');
 }
 
 function findBy(filter){
