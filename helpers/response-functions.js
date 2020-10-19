@@ -1,17 +1,34 @@
+const db = require('../database/dbConfig');
+
 // update,delete functions for responses
 
+ // all recommendations [x]
+function find() {
+    return db('recommendations')
+}
 
+// recommendations based on id
+function findById(id){
+    console.log("id", id)
+    return db('recommendations').where({id:id}).first()
+}
+
+function add(recommendation) {
+    return db('recommendations').insert(recommendation)
+}
 
 function update (changes, id){
-    return db('responses').where({id}).update(changes);
+    return db('recommendations').where({id}).update(changes);
 }
 function remove(id){
-    return db('responses').where({id}).del();
+    return db('recommendations').where({id}).del();
 }
 
 
 module.exports = {
-    save,
+    find,
+    findById,
+    add,
     update,
     remove
 }
