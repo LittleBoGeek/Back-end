@@ -4,7 +4,8 @@ module.exports = {
     find,
     findBy,
     add,
-    findById
+    findById,
+   
 }
 
 function find(){
@@ -23,3 +24,6 @@ async function add(user){
 function findById(id){
     return db('users').where({id}).first();
 }
+
+
+
