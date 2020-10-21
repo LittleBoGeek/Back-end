@@ -116,3 +116,27 @@ Used to get a list of recommended strains.
 
 #####500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
+
+###Recommendations by ID
+
+**URL** : '/api/recommendations/:id'
+**Method** : [GET]
+
+*Headers*
+
+| Name| Type| Required | Description|
+| - | - | - | - |
+| Content-type | String  | Yes | Must be application/JSON |
+| Authorization | String  | Yes | JSON web token |
+
+
+*Response*
+
+#####200 (OK)
+- If recommendation with specified ID is found, the endpoint will return an HTTP response with a status code of 200.
+
+##### 404 (Not Found)
+- If recommendation with specified ID is not found, the endpoint will return an HTTP response with a status code of 404.
+
+#####500 (Internal Service Error)
+- If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
