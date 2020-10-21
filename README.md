@@ -42,7 +42,7 @@ Used to create a new user.
     medical_condition: "anxiety",
     desired_effect: "relaxed"
 }
-
+```
 *Response*
 
 201 (Created)
@@ -50,6 +50,39 @@ Used to create a new user.
 
 400 (Bad Request)
 - If registration information is invalid or incomplete, the endpoint will return an HTTP response with a status code of 400.
+
+500 (Internal Service Error)
+- If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
+
+# Login
+
+Used to log in and authenticate user.
+
+**URL** : '/api/auth/login'
+**Method** : [POST]
+
+*Request Body*
+
+| Name              | Type    | Required | Description                                                |
+| ----------------- | ------- |--------- | ---------------------------------------------------------- |
+| username          | String  |      Yes | Must match username in database.                           |
+| password          | String  |      Yes | Must match password corresponding to username in database. |
+
+*Example*
+
+```js
+{
+    username: "Banana",
+    password: "testing"
+}
+```
+*Response*
+
+200 (OK)
+- If you successfully log in, the endpoint will return an HTTP response with a status code of 200, a welcome message and a JWT for the logged in user.
+
+401 (Unauthorized)
+- If you provide invalid credentials, the endpoint will return an HTTP response with a status code of 401.
 
 500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
