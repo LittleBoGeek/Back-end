@@ -1,5 +1,5 @@
 # Back-end
-
+---
 These examples were taken from projects mainly using [Django Rest
 Framework](https://github.com/tomchristie/django-rest-framework) and so the
 JSON responses are often similar to the way in which DRF makes responses.
@@ -11,7 +11,7 @@ is running on 'http://testserver/'.
 
 Open endpoints require no Authentication.
 
-# Register
+###Register
 
 Used to create a new user.
 
@@ -54,7 +54,7 @@ Used to create a new user.
 #####500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
 
-# Login
+###Login
 
 Used to log in and authenticate user.
 
@@ -86,8 +86,10 @@ Used to log in and authenticate user.
 
 #####500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
+---
 
 ## Authenticated Endpoints
+
 
 Endpoints requre authentication for logged in users.
 
@@ -137,6 +139,42 @@ Used to get a list of recommended strains.
 
 ##### 404 (Not Found)
 - If recommendation with specified ID is not found, the endpoint will return an HTTP response with a status code of 404.
+
+#####500 (Internal Service Error)
+- If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
+
+###Create a recommendation
+Creates a new recommendation.
+
+**URL** : '/api/recommendations/add'
+**Method** : [POST]
+
+*Request Body*
+
+| Name| Type| Required | Description|
+| - | - | - | - |
+| Name | String  | Yes |  |
+| Description | String  | No | |
+| Tags | String | No | |
+| User ID | Integer | Yes | Links to Users table |
+
+*Example*
+
+```js
+{
+    name: "Harlequin",
+    description: "4-7% THC, 8-16% CBD",
+    tags: "pain, stress, depression, inflamation and headache",
+    user_id: 7
+}
+```
+*Response*
+
+#####201 (Created)
+- If recommendation is successfully created, the endpoint will return an HTTP response with a status code of 201.
+
+#####400 (Bad Request)
+- If recommendation data is invalid, the endpoint will return an HTTP response with a status code of 400.
 
 #####500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
