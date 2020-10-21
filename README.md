@@ -4,7 +4,7 @@
 
 Open endpoints require no Authentication.
 
-###Register
+### Register
 
 Used to create a new user.
 
@@ -38,16 +38,16 @@ Used to create a new user.
 ```
 *Response*
 
-#####201 (Created)
+##### 201 (Created)
 - If a user is successfully registered, the endpoint will return an HTTP response with status code 210, and the registered user object
 
-#####400 (Bad Request)
+##### 400 (Bad Request)
 - If registration information is invalid or incomplete, the endpoint will return an HTTP response with a status code of 400.
 
-#####500 (Internal Service Error)
+##### 500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
 
-###Login
+### Login
 
 Used to log in and authenticate user.
 
@@ -71,13 +71,13 @@ Used to log in and authenticate user.
 ```
 *Response*
 
-#####200 (OK)
+##### 200 (OK)
 - If you successfully log in, the endpoint will return an HTTP response with a status code of 200, a welcome message and a JWT for the logged in user.
 
 ##### 401 (Unauthorized)
 - If you provide invalid credentials, the endpoint will return an HTTP response with a status code of 401.
 
-#####500 (Internal Service Error)
+##### 500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
 ---
 
@@ -103,16 +103,16 @@ Used to get a list of recommended strains.
 
 *Response*
 
-#####200 (OK)
+##### 200 (OK)
 - If recommendations are found, the endpoint will return an HTTP response with a status code of 200.
 
 ##### 404 (Not Found)
 - If recommendations are not found, the endpoint will return an HTTP response with a status code of 404.
 
-#####500 (Internal Service Error)
+##### 500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
 
-###Recommendations by ID
+### Recommendations by ID
 
 **URL** : '/api/recommendations/:id'
 **Method** : [GET]
@@ -127,16 +127,16 @@ Used to get a list of recommended strains.
 
 *Response*
 
-#####200 (OK)
+##### 200 (OK)
 - If recommendation with specified ID is found, the endpoint will return an HTTP response with a status code of 200.
 
 ##### 404 (Not Found)
 - If recommendation with specified ID is not found, the endpoint will return an HTTP response with a status code of 404.
 
-#####500 (Internal Service Error)
+##### 500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
 
-###Create a recommendation
+### Create a recommendation
 Creates a new recommendation.
 
 **URL** : '/api/recommendations/add'
@@ -170,16 +170,16 @@ Creates a new recommendation.
 ```
 *Response*
 
-#####201 (Created)
+##### 201 (Created)
 - If recommendation is successfully created, the endpoint will return an HTTP response with a status code of 201.
 
-#####400 (Bad Request)
+##### 400 (Bad Request)
 - If recommendation data is invalid, the endpoint will return an HTTP response with a status code of 400.
 
-#####500 (Internal Service Error)
+##### 500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
 
-###Update a recommendation by ID
+### Update a recommendation by ID
 Makes changes to an existing recommendation.
 
 **URL** : '/api/recommendations/:id'
@@ -213,19 +213,19 @@ Makes changes to an existing recommendation.
 ```
 *Response*
 
-#####200 (OK)
+##### 200 (OK)
 - If recommendation is successfully updated, the endpoint will return an HTTP response with a status code of 200.
 
-#####404 (Not Found)
+##### 404 (Not Found)
 - If recommendation with specified ID is not found and updated, the endpoint will return an HTTP response with a status code of 404.
 
-#####401 (Unauthorized)
+##### 401 (Unauthorized)
 - If user does not have access, the endpoint will return an HTTP response with status code of 401.
 
-#####500 (Internal Service Error)
+##### 500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
 
-###Delete a recommendation by ID
+### Delete a recommendation by ID
 Makes changes to an existing recommendation.
 
 **URL** : '/api/recommendations/:id'
@@ -240,14 +240,14 @@ Makes changes to an existing recommendation.
 
 *Response*
 
-#####200 (OK)
+##### 200 (OK)
 - If recommendation is found and deleted, the endpoint will return an HTTP response with a status code of 200.
 
-#####404 (Not Found)
+##### 404 (Not Found)
 - If recommendation with specified ID is not found and deleted, the endpoint will return an HTTP response with a status code of 404.
 
-#####401 (Unauthorized)
+##### 401 (Unauthorized)
 - If user does not have access, the endpoint will return an HTTP response with status code of 401.
 
-#####500 (Internal Service Error)
+##### 500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
