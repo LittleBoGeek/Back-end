@@ -231,3 +231,30 @@ Makes changes to an existing recommendation.
 
 #####500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
+
+###Delete a recommendation by ID
+Makes changes to an existing recommendation.
+
+**URL** : '/api/recommendations/:id'
+**Method** : [DELETE]
+
+*Headers*
+
+| Name| Type| Required | Description|
+| - | - | - | - |
+| Content-type | String  | Yes | Must be application/JSON |
+| Authorization | String  | Yes | JSON web token |
+
+*Response*
+
+#####200 (OK)
+- If recommendation is found and deleted, the endpoint will return an HTTP response with a status code of 200.
+
+#####404 (Not Found)
+- If recommendation with specified ID is not found and deleted, the endpoint will return an HTTP response with a status code of 404.
+
+#####401 (Unauthorized)
+- If user does not have access, the endpoint will return an HTTP response with status code of 401.
+
+#####500 (Internal Service Error)
+- If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
