@@ -4,15 +4,15 @@ module.exports = {
 
   development: {
     client: 'sqlite3',
+    useNullAsDefault: true,
     connection: {
       filename: './database/auth.db3',
-      useNullAsDefault: true,
-      migrations: {
+    }, 
+    migrations: {
         directory: './database/migrations',
         tableName: 'dbmigrations'
       },
-      seeds: { directory: './database/seeds'},
-    }
+    seeds: { directory: './database/seeds'},
   },
 
   staging: {
