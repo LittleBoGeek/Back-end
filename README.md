@@ -45,13 +45,13 @@ Used to create a new user.
 ```
 *Response*
 
-201 (Created)
+#####201 (Created)
 - If a user is successfully registered, the endpoint will return an HTTP response with status code 210, and the registered user object
 
-400 (Bad Request)
+#####400 (Bad Request)
 - If registration information is invalid or incomplete, the endpoint will return an HTTP response with a status code of 400.
 
-500 (Internal Service Error)
+#####500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
 
 # Login
@@ -63,10 +63,10 @@ Used to log in and authenticate user.
 
 *Request Body*
 
-| Name              | Type    | Required | Description                                                |
-| ----------------- | ------- |--------- | ---------------------------------------------------------- |
-| username          | String  |      Yes | Must match username in database.                           |
-| password          | String  |      Yes | Must match password corresponding to username in database. |
+| Name| Type| Required | Description|
+| - | - | - | - |
+| username | String  | Yes | Must match username in database.                           |
+| password | String  | Yes | Must match password corresponding to username in database. |
 
 *Example*
 
@@ -78,12 +78,41 @@ Used to log in and authenticate user.
 ```
 *Response*
 
-200 (OK)
+#####200 (OK)
 - If you successfully log in, the endpoint will return an HTTP response with a status code of 200, a welcome message and a JWT for the logged in user.
 
-401 (Unauthorized)
+##### 401 (Unauthorized)
 - If you provide invalid credentials, the endpoint will return an HTTP response with a status code of 401.
 
-500 (Internal Service Error)
+#####500 (Internal Service Error)
 - If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
 
+## Authenticated Endpoints
+
+Endpoints requre authentication for logged in users.
+
+###Get Recommendations
+
+Used to get a list of recommended strains.
+
+**URL** : '/api/recommendations/'
+**Method** : [GET]
+
+*Headers*
+
+| Name| Type| Required | Description|
+| - | - | - | - |
+| Content-type | String  | Yes | Must be application/JSON |
+| Authorization | String  | Yes | JSON web token |
+
+
+*Response*
+
+#####200 (OK)
+- If recommendations are found, the endpoint will return an HTTP response with a status code of 200.
+
+##### 404 (Not Found)
+- If recommendations are not found, the endpoint will return an HTTP response with a status code of 404.
+
+#####500 (Internal Service Error)
+- If there is a server or database error, the endpoint will return an HTTP response with a status code of 500.
