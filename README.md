@@ -39,7 +39,7 @@ Used to create a new user.
 *Response*
 
 ##### 201 (Created)
-- If a user is successfully registered, the endpoint will return an HTTP response with status code 210, and the registered user object
+- If a user is successfully registered, the endpoint will return an HTTP response with status code 201, and the registered user object
 
 ##### 400 (Bad Request)
 - If registration information is invalid or incomplete, the endpoint will return an HTTP response with a status code of 400.
