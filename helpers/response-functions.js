@@ -4,7 +4,7 @@ const db = require('../database/dbConfig');
 
  // all recommendations [x]
 function find() {
-    return db('recommendations')
+    return db('recommendations');
 }
 
 // recommendations based on id

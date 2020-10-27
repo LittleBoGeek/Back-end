@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { response } = require('express');
-const express = require('express')
 
 const Recommendations = require('../helpers/response-functions')
 
@@ -20,7 +19,7 @@ router.get('/', (req, res) => {
 
 
 //[x] get individual recommendations via id 
-router.get('/:id', (req, res) => {
+router.get('/:id', validateRecId, (req, res) => {
     const { id } = req.params;
     Recommendations.findById(id)
     .then( recs => {
@@ -44,7 +43,7 @@ router.post('/add', (req,res) => {
 })
 
 //[x]
-router.put('/:id', (req,res) => {
+router.put('/:id', validateRecId, (req,res) => {
     const { id } = req.params;
     const changes = req.body;
     
@@ -67,7 +66,7 @@ router.put('/:id', (req,res) => {
 })
 
 //[x]
-router.delete('/:id', (req, res) => {
+router.delete('/:id', validateRecId, (req, res) => {
     const {id} = req.params;
 
     Recommendations.remove(id)
@@ -82,5 +81,20 @@ router.delete('/:id', (req, res) => {
         res.status(500).json({message:"There was an error"})
     })
 })
+
+// custom middleware
+
+function validateRecId(req, res, next) {
+    const {id} = req.params;
+    Recommendations.findById(id)
+      .then(post =>{
+        if(post){
+          req.post = post;
+          next();
+        }else{
+          res.status(400).json({message: 'invalid recommendation id'});
+        }
+      })
+  }
 
 module.exports = router;
