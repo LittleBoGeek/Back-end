@@ -1,18 +1,20 @@
-const jwt = require('jsonwebtoken');
-const { secret } = require('../config/secrets');
+const jwt = require("jsonwebtoken");
+const { secret } = require("../config/secrets");
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
-  if(authorization){
-    jwt.verify(authorization, secret, (err, decodedToken)=>{
-      if(err){
-        res.status(401).json({ you: 'shall not pass!'});
+  if (authorization) {
+    jwt.verify(authorization, secret, (err, decodedToken) => {
+      if (err) {
+        res.status(401).json({ you: "shall not pass!" });
       } else {
         req.decodedToken = decodedToken;
         next();
       }
-    })
+    });
   } else {
-    res.status(400).json({message: "please enter a valid username and password"})
+    res
+      .status(400)
+      .json({ message: "please enter a valid username and password" });
   }
 };
